@@ -8,7 +8,7 @@ export function Home() {
 	const [hoverTask, setHoverTask] = useState(false);
 
 	
-	const handleOnKeyPress = e => {
+	const HandleOnKeyPress = e => {
 		
 		if (e.key === "Enter" && task !== "") {
 			e.preventDefault();
@@ -26,7 +26,7 @@ export function Home() {
 		}
 	};
 
-	const genList = () => {
+	const GenList = () => {
 		
 		return tasklist.map(task => (
 			<li
@@ -34,13 +34,13 @@ export function Home() {
 				className="list-group-item"
 				onMouseEnter={() => setHoverTask(task.id)}>
 				<p className="d-inline-block text-secondary ml-4 fs-3 align-middle ">
-					{task.description}
+					-{task.description}
 				</p>
 				{task.id == hoverTask ? (
 					<button
 						type="button"
 						className="delete btn text-muted"
-						onClick={() => deleteTask(task.id)}>
+						onClick={() => DeleteTask(task.id)}>
 						<i className="fa-regular fa-trash-can"></i>
 					</button>
 				) : null}
@@ -49,7 +49,7 @@ export function Home() {
 	};
 
 	
-	const deleteTask = id => {
+	const DeleteTask = id => {
 		const updateTaskList = [...tasklist].filter(task => task.id !== id);
 		setTaskList(updateTaskList);
 	};
@@ -65,13 +65,13 @@ export function Home() {
 				className="tasker2 text-muted"
 				value={task}
 				onChange={e => setTask(e.target.value)}
-				onKeyPress={e => handleOnKeyPress(e)}
+				onKeyPress={e => HandleOnKeyPress(e)}
 			>
 
 			</input>
 			</div>
 			<ul className="list-group">
-				{genList()}
+				{GenList()}
 				<div>
 					<label htmlFor="list-group-item">
 						<p className="text-muted ml-5 mt-2">
