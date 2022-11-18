@@ -22,7 +22,7 @@ export function Home() {
 			
 			setInputValue("");
 		} else if (e.key === "Enter" && inputValue == "") {
-			alert("The input cannot be empty");
+			alert("Please type a task");
 		}
 	};
 
@@ -61,7 +61,7 @@ export function Home() {
 			<div className="tasker">
 			<input
 				type="text"
-				placeholder="Type a new inputValue"
+				placeholder="Add your task here."
 				className="tasker2 text-muted"
 				value={inputValue}
 				onChange={e => setInputValue(e.target.value)}
@@ -76,7 +76,7 @@ export function Home() {
 					<label htmlFor="list-group-item">
 						<p className="text-muted ml-5 mt-2">
 							{todos.length == 0
-								? " No tasks, add a inputValue"
+								? " No tasks, add a new one."
 								: todos.length + " item left"}
 						</p>
 					</label>
